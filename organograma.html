@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Projeto: Sistema de Organograma | João Pedro Milhomens</title>
+  
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@100;400;900&family=Space+Grotesk:wght@300;700&display=swap" rel="stylesheet">
+  
+  <style>
+    :root {
+        --primary: #00ffc2;
+        --bg: #050505;
+        --surface: rgba(255, 255, 255, 0.03);
+        --border: rgba(255, 255, 255, 0.1);
+        --font-main: 'Outfit', sans-serif;
+        --font-accent: 'Space Grotesk', sans-serif;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+        background: var(--bg);
+        color: #fff;
+        font-family: var(--font-main);
+        padding: 80px 20px;
+        overflow-x: hidden;
+    }
+
+    /* CANVAS - Fundo com 350 Partículas */
+    #canvas-bg {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        z-index: 1;
+        opacity: 0.4;
+        pointer-events: none;
+    }
+
+    .container { 
+        max-width: 1000px; 
+        margin: 0 auto; 
+        position: relative; 
+        z-index: 10; 
+    }
+
+    /* Cabeçalho Cyberpunk */
+    .project-header {
+        margin-bottom: 50px;
+        border-left: 4px solid var(--primary);
+        padding-left: 20px;
+    }
+
+    .subtitle {
+        color: var(--primary);
+        font-family: var(--font-accent);
+        font-size: 0.8rem;
+        letter-spacing: 4px;
+        text-transform: uppercase;
+        margin-bottom: 10px;
+    }
+
+    h1 {
+        font-family: var(--font-accent);
+        font-size: clamp(2.2rem, 6vw, 4rem);
+        text-transform: uppercase;
+        line-height: 1;
+        font-weight: 700;
+    }
+
+    /* Card com Blur */
+    .card {
+        background: var(--surface);
+        border: 1px solid var(--border);
+        border-radius: 24px;
+        padding: 50px;
+        backdrop-filter: blur(15px);
+        -webkit-backdrop-filter: blur(15px);
+    }
+
+    .project-gallery img {
+        width: 100%;
+        border-radius: 12px;
+        border: 1px solid var(--border);
+        margin-bottom: 30px;
+        transition: 0.4s;
+    }
+
+    .project-gallery img:hover {
+        border-color: var(--primary);
+        box-shadow: 0 0 30px rgba(0, 255, 194, 0.2);
+    }
+
+    h2 {
+        font-family: var(--font-accent);
+        color: var(--primary);
+        font-size: 1.6rem;
+        margin: 35px 0 15px;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+    }
+
+    p {
+        color: #ccc;
+        font-size: 1.15rem;
+        line-height: 1.8;
+        font-weight: 300;
+        margin-bottom: 25px;
+    }
+
+    /* Tech Pills */
+    .tech-pills {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 12px;
+        margin-top: 25px;
+    }
+
+    .tech-pills span {
+        font-family: var(--font-accent);
+        font-size: 0.75rem;
+        padding: 8px 18px;
+        background: rgba(0, 255, 194, 0.05);
+        border: 1px solid rgba(0, 255, 194, 0.2);
+        color: var(--primary);
+        border-radius: 4px;
+        text-transform: uppercase;
+        letter-spacing: 2px;
+        font-weight: 700;
+    }
+
+    /* Botão Voltar HUD */
+    .btn-back {
+        display: inline-block;
+        margin-top: 60px;
+        padding: 15px 30px;
+        border: 1px solid var(--border);
+        color: #fff;
+        font-family: var(--font-accent);
+        text-transform: uppercase;
+        text-decoration: none;
+        letter-spacing: 2px;
+        transition: 0.3s;
+    }
+
+    .btn-back:hover {
+        background: #fff;
+        color: #000;
+        border-color: #fff;
+    }
+
+    /* Link "Neon Ghost" para usar dentro de textos */
+.cyber-link {
+    color: var(--primary);
+    text-decoration: none;
+    font-weight: 700;
+    font-family: var(--font-accent);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    padding: 0 4px;
+    position: relative;
+    transition: 0.3s;
+    border-bottom: 1px dashed var(--primary);
+}
+
+.cyber-link:hover {
+    background: rgba(0, 255, 194, 0.1);
+    text-shadow: 0 0 8px var(--primary);
+    border-bottom: 1px solid var(--primary);
+}
+
+.cyber-link::before {
+    content: '[';
+    margin-right: 4px;
+    opacity: 0.5;
+}
+
+.cyber-link::after {
+    content: ']';
+    margin-left: 4px;
+    opacity: 0.5;
+}
+
+    @media (max-width: 768px) {
+        .card { padding: 25px; }
+        h1 { font-size: 2.8rem; }
+    }
+  </style>
+</head>
+<body>
+
+  <canvas id="canvas-bg"></canvas>
+
+  <div class="container">
+    <header class="project-header">
+        <div class="subtitle">Data Viz // Automation // UX</div>
+        <h1>Sistema de <span style="color:var(--primary)">Organograma</span></h1>
+    </header>
+
+    <div class="card">
+        <div class="project-gallery">
+            <img src="imgs/SISTEMA ORGANOGRAMA.png" alt="Interface do Sistema de Organograma">
+        </div>
+
+        <h2>// O Desafio</h2>
+        <p>
+            Transformar informações dispersas em múltiplas planilhas de Excel em uma visualização clara, dinâmica e acessível. A ferramenta interpreta listas extensas de cargos e supervisões, convertendo-as em uma estrutura organizada e pronta para download em segundos.
+        </p>
+
+        
+
+        <h2>// Engenharia do Projeto</h2>
+        <p>
+            Aprofundei a manipulação de dados para automatizar a interpretação da hierarquia corporativa. O fluxo elimina o ajuste manual: o usuário insere os dados e recebe imediatamente um organograma formatado, ajustável e funcional.
+        </p>
+        <p>
+            O resultado é uma interface moderna que facilita análises estruturais e apresentações executivas, elevando o padrão de como dados hierárquicos são processados.
+        </p>
+
+        <p>Confira o sistema em funcionamento: <a href="https://lnkd.in/dQiFNSUK" class="cyber-link" target="_blank">Acesse </a></p>
+
+        <h2>// Tecnológias</h2>
+        <div class="tech-pills">
+            <span>JavaScript</span>
+            <span>JSON</span>
+            <span>DOM Manipulation</span>
+            <span>CSS Grid/Flexbox</span>
+            <span>HTML5 Canvas</span>
+        </div>
+
+        <a href="index.html#projetos" class="btn-back">← [ Voltar para Projetos ]</a>
+    </div>
+  </div>
+
+  <script>
+    const canvas = document.getElementById('canvas-bg');
+    const ctx = canvas.getContext('2d');
+    
+    function resize() {
+        canvas.width = window.innerWidth;
+        canvas.height = window.innerHeight;
+    }
+    window.addEventListener('resize', resize);
+    resize();
+
+    // 350 partículas, maiores e com brilho
+    let particles = Array.from({length: 350}, () => ({
+        x: Math.random() * canvas.width,
+        y: Math.random() * canvas.height,
+        size: Math.random() * 3.8 + 0.5,
+        speed: Math.random() * 0.4 + 0.1,
+        opacity: Math.random() * 0.5 + 0.2
+    }));
+
+    function animate() {
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
+        
+        particles.forEach(p => {
+            ctx.beginPath();
+            ctx.arc(p.x, p.y, p.size, 0, Math.PI * 2);
+            
+            if(p.size > 2.8) {
+                ctx.shadowBlur = 10;
+                ctx.shadowColor = "#00ffc2";
+            } else {
+                ctx.shadowBlur = 0;
+            }
+
+            ctx.fillStyle = `rgba(0, 255, 194, ${p.opacity})`;
+            ctx.fill();
+            
+            p.y -= p.speed;
+            if(p.y < -10) {
+                p.y = canvas.height + 10;
+                p.x = Math.random() * canvas.width;
+            }
+        });
+        requestAnimationFrame(animate);
+    }
+    animate();
+  </script>
+</body>
+</html>

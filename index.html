@@ -1,0 +1,363 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>João Pedro | Portfólio & Projetos</title>
+
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@100;400;900&family=Space+Grotesk:wght@300;700&display=swap" rel="stylesheet">
+    <Link rel="stylesheet" href="styles.css"></Link>
+
+</head>
+
+<body>
+
+    <canvas id="canvas-bg"></canvas>
+    <div id="black-out"></div>
+
+    <header class="hud">
+        <div class="hud-content">
+            <div class="logo">JOÃO PEDRO F. MILHOMENS </div>
+            <nav class="nav-links">
+                <a href="#inicio">Início</a> 
+                <a href="#sobre-texto">Sobre</a>
+                <a href="#habilidades">Habilidades</a>
+                <a href="#projetos">Projetos</a>
+                <a href="#contato">Contato</a>
+            </nav>
+        </div>
+    </header>
+
+    <div class="intro-video-container" id="video-wrap">
+        <video autoplay muted loop id="bg-video">
+            <source src="SEU_VIDEO_AQUI.mp4" type="video/mp4">
+        </video>
+    </div>
+
+    <div class="viewport">
+        <div class="world" id="world">
+            
+            <div class="section-block" id="inicio" style="--z: 0px;">
+                <h1 class="hero-title">JOÃO <span class="accent-text">MILHOMENS</span></h1>
+                <h2 style="font-size:2rem; font-family:var(--font-accent); margin-top:10px;"> Analyst & Dev</h2>
+            </div>
+
+            <div class="section-block" style="--z: -2500px;">
+                <h2 style="font-size:3.5rem; font-family:var(--font-accent); text-transform: uppercase;">
+                    Automação <br><span class="accent-text">que gera resultado.</span>
+                </h2>
+            </div>
+
+            <div class="section-block" id="sobre-texto" style="--z: -5000px;">
+                <div class="about-container">
+                    <h2 class="about-title">Sobre</h2>
+                    <div class="about-card">
+                        Gosto de simplificar o complexo. Tenho um interesse real por automações 
+                        e por tudo que remove retrabalho, acelera processos e transforma dados em decisões.
+                        Curto entender o porquê das coisas, desmontar problemas e reconstruir soluções mais
+                        rápidas, inteligentes e eficientes.
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <div class="trigger-3d-end"></div>
+
+    <section class="skills-main-section" id="habilidades">
+        <div class="left-side">
+            <div class="counter">01 / 07</div>
+            <h1>Habilidades Técnicas</h1>
+            <p>Focado em transformar dados complexos em automações e ferramentas que apoiam decisões estratégicas.</p>
+        </div>
+
+        <div class="right-side">
+            
+            <div class="card-container">
+                <div class="card" style="background-image: url('imgs/python_hero_image.png');">
+                    <h2>Python</h2>
+                    <p>Uso Python para desenvolver automações, realizar scraping e analisar grandes volumes de dados, transformando processos manuais em soluções eficientes.</p>
+                </div>
+            </div>
+            <div class="scroll-spacer"></div>
+
+            <div class="card-container">
+                <div class="card" style="background-image: url('imgs/img\ front\ \(1\).jpg');">
+                    <h2>Web Dev</h2>
+                    <p>Desenvolvimento de interfaces e aplicações web utilizando React, Node.js e tecnologias modernas voltadas para escalabilidade.</p>
+                </div>
+            </div>
+            <div class="scroll-spacer"></div>
+
+            <div class="card-container">
+                <div class="card" style="background-image: url('imgs/sql.avif');">
+                    <h2>SQL</h2>
+                    <p>Estruturação e otimização de bancos de dados SQL para consultas rápidas e dados confiáveis.</p>
+                </div>
+            </div>
+            <div class="scroll-spacer"></div>
+
+            <div class="card-container">
+                <div class="card" style="background-image: url('imgs/excel.png');">
+                    <h2>EXCEL • VBA</h2>
+                    <p>Criação de automações, dashboards e interfaces no Excel para otimizar processos e análise de dados.</p>
+                </div>
+            </div>
+            <div class="scroll-spacer"></div>
+
+            <div class="card-container">
+                <div class="card" style="background-image: url('imgs/POWER\ BI.png');">
+                    <h2>Power BI</h2>
+                    <p>Desenvolvo dashboards no Power BI que transformam dados operacionais em indicadores estratégicos para tomada de decisão.</p>
+                </div>
+            </div>
+            <div class="scroll-spacer"></div>
+
+            <div class="card-container">
+                <div class="card" style="background-image: url('imgs/MONDAY.jpg');">
+                    <h2>Monday.com</h2>
+                    <p>Uso a Monday para estruturar fluxos de projetos e automatizar processos de gestão de PMO.</p>
+                </div>
+            </div>
+            <div class="scroll-spacer"></div>
+
+            <div class="card-container">
+                <div class="card" style="background-image: url('imgs/IA.png');">
+                    <h2>INTELIGÊNCIA ARTIFICIAL</h2>
+                    <p>Implementação de soluções com IA para análise de dados e automação de processos.</p>
+                </div>
+            </div>
+
+            <div style="height: 30vh;"></div>
+        </div>
+    </section>
+
+    <section class="projects-section-wrapper" id="projetos">
+        
+        <div class="section-header-center">
+            <h2>Ecosistema de Projetos</h2>
+            <p style="color: var(--primary); letter-spacing: 3px; font-size: 0.8rem; margin-top: 10px;">CLIQUE E VEJA</p>
+        </div>
+
+        <div class="org-map" id="org-map">
+            <svg id="org-svg"></svg>
+
+            <div class="org-side org-left">
+                <div class="org-card" data-id="1" data-color="var(--item-1)">
+                    <a href="colaboradores_cons.html" target="_blank" style="text-decoration: none; color: inherit; display: block;">
+                        <span class="card-badge">Automation</span>
+                        <h3>CONSULTA DE COLABORADORES</h3>
+                        <p>O projeto onde criei minhas próprias APIs e transformei caos em dados inteligentes.</p>
+                    </a>
+                    </div>
+                <div class="org-card" data-id="2" data-color="var(--item-2)">
+                    <a href="organograma.html" target="_blank" style="text-decoration: none; color: inherit; display: block;">
+                        <span class="card-badge">Visualization</span>
+                        <h3>ORGANOGRAMA INTERATIVO</h3>
+                        <p>Organogramas gerados em segundos. Estruturas claras, profissionais e fáceis de navegar.</p>
+                    </a>
+                </div>
+            </div>
+
+            <div class="org-core">PROJETOS</div>
+
+            <div class="org-side org-right">
+                <div class="org-card" data-id="3" data-color="var(--item-3)">
+                    <span class="card-badge">Analytics</span>
+                    <a href="excel.html" target="_blank" style="text-decoration: none; color: inherit; display: block;">
+                        <h3>DASHBOARDS EM EXCEL</h3>
+                        <p>Dashboards ágeis sem depender de BI. Visualizações inteligentes direto no Excel.</p>
+                    </a>
+                </div>
+                <div class="org-card" data-id="4" data-color="var(--item-4)">
+                    <span class="card-badge">Management</span>
+                    <h3>HUB PMO</h3>
+                    <p>Plataforma central para gestão de projetos, consolidando informações, automações e indicadores estratégicos em um único ambiente.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <script>
+        // --- CONTROLE DO SCROLL 3D E ANIMAÇÕES ---
+        const world = document.getElementById('world');
+        const videoWrap = document.getElementById('video-wrap');
+        const blackOut = document.getElementById('black-out');
+        const sections = document.querySelectorAll('.section-block');
+
+        function update3D() {
+            const scrollY = window.scrollY;
+            const stopPoint = 2500; 
+            const speed = 2.0;
+            const currentWorldZ = scrollY * speed;
+
+            if (scrollY < stopPoint) {
+                world.style.transform = `translateZ(${currentWorldZ}px)`;
+                videoWrap.style.opacity = 1 - (scrollY / 1200);
+                blackOut.style.opacity = Math.min(scrollY / stopPoint, 1);
+                
+                sections.forEach(s => {
+                    const z = parseFloat(getComputedStyle(s).getPropertyValue('--z'));
+                    const relativeZ = z + currentWorldZ;
+                    // Lógica de visibilidade dos blocos 3D
+                    s.style.opacity = (relativeZ > -2500 && relativeZ < 600) ? 1 : 0;
+                });
+            } else {
+                blackOut.style.opacity = 1;
+                videoWrap.style.opacity = 0;
+            }
+        }
+
+        // --- CANVAS DE PARTÍCULAS ---
+        const canvas = document.getElementById('canvas-bg');
+        const ctx = canvas.getContext('2d');
+        let parts = [];
+
+        function initCanvas() {
+            canvas.width = window.innerWidth; 
+            canvas.height = window.innerHeight;
+            parts = Array.from({length: 100}, () => ({
+                x: Math.random() * canvas.width, 
+                y: Math.random() * canvas.height, 
+                s: Math.random() * 2
+            }));
+        }
+
+        function drawParticles() {
+            ctx.clearRect(0,0,canvas.width,canvas.height);
+            ctx.fillStyle = "#00ffc2";
+            parts.forEach(p => {
+                ctx.beginPath(); 
+                ctx.arc(p.x, p.y, p.s, 0, Math.PI*2); 
+                ctx.fill();
+                p.y -= 0.3; 
+                if(p.y < 0) p.y = canvas.height;
+            });
+            requestAnimationFrame(drawParticles);
+        }
+
+        // --- LÓGICA DO MAPA DE PROJETOS (CONECTORES SVG) ---
+        function generateLines() {
+            const svg = document.getElementById('org-svg');
+            const coreElement = document.querySelector('.org-core');
+            const mapElement = document.getElementById('org-map');
+            
+            if(!coreElement || !mapElement) return;
+
+            const core = coreElement.getBoundingClientRect();
+            const map = mapElement.getBoundingClientRect();
+            
+            svg.innerHTML = '';
+            const coreX = (core.left + core.width / 2) - map.left;
+            const coreY = (core.top + core.height / 2) - map.top;
+
+            document.querySelectorAll('.org-card').forEach(card => {
+                const rect = card.getBoundingClientRect();
+                const isLeft = card.closest('.org-side').classList.contains('org-left');
+                const itemColor = card.getAttribute('data-color');
+                
+                // Ponto de início da linha (borda do card)
+                const startX = isLeft ? (rect.right - map.left) : (rect.left - map.left);
+                const startY = (rect.top + rect.height / 2) - map.top;
+
+                const path = document.createElementNS("http://www.w3.org/2000/svg", "path");
+                
+                // Curva de Bézier
+                const cp1x = startX + (coreX - startX) * 0.5;
+                const d = `M ${startX} ${startY} C ${cp1x} ${startY}, ${cp1x} ${coreY}, ${coreX} ${coreY}`;
+                
+                path.setAttribute("d", d);
+                path.setAttribute("class", "connector-path");
+                svg.appendChild(path);
+
+                // Efeito hover sincronizado com a linha
+                card.addEventListener('mouseenter', () => {
+                    path.style.stroke = itemColor;
+                    path.style.strokeWidth = "4";
+                    path.style.filter = "drop-shadow(0 0 8px " + itemColor + ")";
+                });
+
+                card.addEventListener('mouseleave', () => {
+                    path.style.stroke = "var(--line-default)";
+                    path.style.strokeWidth = "2.5";
+                    path.style.filter = "none";
+                });
+            });
+        }
+
+        // --- LISTENERS ---
+        window.addEventListener('scroll', () => {
+            update3D();
+            // Otimização: Só gera as linhas se a seção de projetos estiver visível
+            if(window.scrollY > 4000) generateLines();
+        });
+
+        window.addEventListener('resize', () => {
+            initCanvas();
+            generateLines();
+        });
+
+        window.addEventListener('load', () => {
+            initCanvas();
+            drawParticles();
+            setTimeout(generateLines, 500); // Delay para garantir renderização
+        });
+
+        // Função para rolar para a profundidade correta no mundo 3D
+document.querySelectorAll('.nav-links a').forEach(anchor => {
+    anchor.addEventListener('click', function(e) {
+        const targetId = this.getAttribute('href');
+        
+        // Se for Início ou Sobre, precisamos rolar para os pixels equivalentes ao Z-index
+        if (targetId === '#inicio' || targetId === '#sobre-texto') {
+            e.preventDefault();
+            
+            let scrollTarget = 0;
+            if (targetId === '#sobre-texto') {
+                // O "Sobre" está em -5000px. Com speed 2.0, precisamos de 2500px de scroll.
+                scrollTarget = 2500; 
+            }
+            
+            window.scrollTo({
+                top: scrollTarget,
+                behavior: 'smooth'
+            });
+        }
+        // Os outros links (Habilidades, Projetos, Contato) o navegador já resolve sozinho
+    });
+});
+
+    </script>
+
+    <footer class="site-footer">
+    <div class="footer-container">
+        <div class="footer-col">
+            <span class="footer-label">LOCALIZAÇÃO // CONTATO</span>
+            <p>São Paulo, BR</p>
+            <p><a href="mailto:joaopppmil@gmail.com" class="footer-link">joaopppmil@gmail.com</a></p>
+            <p><a href="https://wa.me/5511947399254" target="_blank" class="footer-link">+55 (11) 94739-9254</a></p>
+        </div>
+
+        <div class="footer-col">
+            <span class="footer-label">FORMAÇÃO // FACULDADE</span>
+            <p>Sistemas de Informação</p>
+            <p class="accent-text" style="font-size: 0.85rem;">Universidade Mackenzie</p>
+            <p style="opacity: 0.8; font-size: 0.75rem;">2022 — JUN 2027</p>
+        </div>
+
+        <div class="footer-col footer-right">
+            <span class="footer-label">SOCIAL</span>
+            <div class="footer-socials">
+                <a href="https://www.linkedin.com/in/jo%C3%A3o-milhomens-9bb988276/" target="_blank" class="footer-link">LINKEDIN</a>
+            </div><BR><BR>
+            <p class="copyright">© 2024 JOÃO PEDRO. ALL RIGHTS RESERVED.</p>
+        </div>
+    </div>
+</footer>
+<footer class="site-footer" id="contato">
+        JOÃO PEDRO FERNANDES MILHOMENS &copy; 2024 // DESENVOLVIDO COM FOCO EM PERFORMANCE
+    </footer>
+</body>
+</html>

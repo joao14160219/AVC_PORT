@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Projeto: Dashboards Excel | João Pedro Milhomens</title>
+  
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@100;400;900&family=Space+Grotesk:wght@300;700&display=swap" rel="stylesheet">
+  
+  <style>
+    :root {
+        --primary: #00ffc2; /* Verde Neon */
+        --bg: #050505;
+        --surface: rgba(255, 255, 255, 0.03);
+        --border: rgba(255, 255, 255, 0.1);
+        --font-main: 'Outfit', sans-serif;
+        --font-accent: 'Space Grotesk', sans-serif;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+        background: var(--bg);
+        color: #fff;
+        font-family: var(--font-main);
+        padding: 80px 20px;
+        overflow-x: hidden;
+    }
+
+    /* CANVAS - Partículas Maiores e em Maior Quantidade (350) */
+    #canvas-bg {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        z-index: 1;
+        opacity: 0.4;
+        pointer-events: none;
+    }
+
+    .container { 
+        max-width: 1000px; 
+        margin: 0 auto; 
+        position: relative; 
+        z-index: 10; 
+    }
+
+    /* Header Estilo HUD */
+    .project-header {
+        margin-bottom: 50px;
+        border-left: 4px solid var(--primary);
+        padding-left: 20px;
+    }
+
+    .subtitle {
+        color: var(--primary);
+        font-family: var(--font-accent);
+        font-size: 0.8rem;
+        letter-spacing: 4px;
+        text-transform: uppercase;
+        margin-bottom: 10px;
+    }
+
+    h1 {
+        font-family: var(--font-accent);
+        font-size: clamp(2.2rem, 6vw, 4rem);
+        text-transform: uppercase;
+        line-height: 1;
+    }
+
+    /* Card com Efeito Glass e Blur */
+    .card {
+        background: var(--surface);
+        border: 1px solid var(--border);
+        border-radius: 24px;
+        padding: 40px;
+        backdrop-filter: blur(15px);
+        -webkit-backdrop-filter: blur(15px);
+    }
+
+    .project-gallery img {
+        width: 100%;
+        border-radius: 12px;
+        border: 1px solid var(--border);
+        margin-bottom: 20px;
+        transition: 0.4s;
+    }
+
+    .project-gallery img:hover {
+        border-color: var(--primary);
+        box-shadow: 0 0 30px rgba(0, 255, 194, 0.2);
+    }
+
+    h2 {
+        font-family: var(--font-accent);
+        color: var(--primary);
+        font-size: 1.5rem;
+        margin: 35px 0 15px;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+    }
+
+    p {
+        color: #ccc;
+        font-size: 1.1rem;
+        line-height: 1.8;
+        font-weight: 300;
+        margin-bottom: 20px;
+    }
+
+    /* Tech Pills Estilizadas */
+    .tech-pills {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 12px;
+        margin-top: 20px;
+    }
+
+    .tech-pills span {
+        font-family: var(--font-accent);
+        font-size: 0.75rem;
+        padding: 8px 18px;
+        background: rgba(0, 255, 194, 0.05);
+        border: 1px solid rgba(0, 255, 194, 0.2);
+        color: var(--primary);
+        border-radius: 4px;
+        text-transform: uppercase;
+        letter-spacing: 2px;
+    }
+
+    /* Botão Voltar HUD */
+    .btn-back {
+        display: inline-block;
+        margin-top: 50px;
+        padding: 15px 30px;
+        border: 1px solid var(--border);
+        color: #fff;
+        font-family: var(--font-accent);
+        text-transform: uppercase;
+        text-decoration: none;
+        letter-spacing: 2px;
+        transition: 0.3s;
+    }
+
+    .btn-back:hover {
+        background: #fff;
+        color: #000;
+        border-color: #fff;
+    }
+
+    @media (max-width: 768px) {
+        .card { padding: 25px; }
+        body { padding-top: 40px; }
+    }
+  </style>
+</head>
+<body>
+
+  <canvas id="canvas-bg"></canvas>
+
+  <div class="container">
+    <header class="project-header">
+        <div class="subtitle">Data Visualization // BI Alternative</div>
+        <h1>Dashboards <span style="color:var(--primary)">Interativos</span></h1>
+    </header>
+
+    <div class="card">
+        <div class="project-gallery">
+            <img src="imgs/3.png" alt="Dashboard Preview">
+        </div>
+
+        <h2>// Sobre o projeto</h2>
+        <p>
+            Nos últimos 30 dias me lancei em um desafio: criar dashboards fora do Power BI. Ao encontrar modelos avançados em Excel, percebi que a ferramenta permite ir muito além do básico quando aplicada a lógica correta de visualização.
+        </p>
+        <p>
+            Desenvolvi dashboards focados em clareza estratégica para meu diretor, priorizando a velocidade na leitura dos dados. Esse projeto reforçou minha crença de que não existem barreiras para uma boa visualização: com as ferramentas certas, entregamos valor real.
+        </p>
+
+        <h2>// Tecnologia</h2>
+        <div class="tech-pills">
+            <span>EXCEL ADVANCED</span>
+            <span>KPI STRATEGY</span>
+        </div>
+
+        <a href="index.html#projetos" class="btn-back">← [ Voltar ]</a>
+    </div>
+  </div>
+
+  <script>
+    const canvas = document.getElementById('canvas-bg');
+    const ctx = canvas.getContext('2d');
+    
+    function resize() {
+        canvas.width = window.innerWidth;
+        canvas.height = window.innerHeight;
+    }
+    window.addEventListener('resize', resize);
+    resize();
+
+    // CONFIGURAÇÃO: 350 bolinhas com tamanhos e velocidades variadas
+    let particles = Array.from({length: 350}, () => ({
+        x: Math.random() * canvas.width,
+        y: Math.random() * canvas.height,
+        size: Math.random() * 3.5 + 0.5, // Bolinhas Maiores
+        speed: Math.random() * 0.4 + 0.1,
+        opacity: Math.random() * 0.5 + 0.2
+    }));
+
+    function animate() {
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
+        
+        particles.forEach(p => {
+            ctx.beginPath();
+            ctx.arc(p.x, p.y, p.size, 0, Math.PI * 2);
+            
+            // Glow sutil para as maiores para dar profundidade
+            if(p.size > 2.5) {
+                ctx.shadowBlur = 8;
+                ctx.shadowColor = "#00ffc2";
+            } else {
+                ctx.shadowBlur = 0;
+            }
+
+            ctx.fillStyle = `rgba(0, 255, 194, ${p.opacity})`;
+            ctx.fill();
+            
+            p.y -= p.speed; // Movimento contínuo para cima
+            if(p.y < -10) {
+                p.y = canvas.height + 10;
+                p.x = Math.random() * canvas.width;
+            }
+        });
+        requestAnimationFrame(animate);
+    }
+    animate();
+  </script>
+</body>
+</html>

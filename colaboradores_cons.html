@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Projeto: Consulta de Colaboradores | João Pedro Milhomens</title>
+  
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@100;400;900&family=Space+Grotesk:wght@300;700&display=swap" rel="stylesheet">
+  
+  <style>
+    :root {
+        --primary: #00ffc2;
+        --bg: #050505;
+        --surface: rgba(255, 255, 255, 0.03);
+        --border: rgba(255, 255, 255, 0.1);
+        --font-main: 'Outfit', sans-serif;
+        --font-accent: 'Space Grotesk', sans-serif;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+        background: var(--bg);
+        color: #fff;
+        font-family: var(--font-main);
+        padding: 80px 20px;
+        overflow-x: hidden;
+    }
+
+    /* CANVAS - Partículas Maiores e em Maior Quantidade */
+    #canvas-bg {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        z-index: 1;
+        opacity: 0.4; /* Aumentei um pouco a visibilidade */
+        pointer-events: none;
+    }
+
+    .container { 
+        max-width: 1000px; 
+        margin: 0 auto; 
+        position: relative; 
+        z-index: 10; 
+    }
+
+    .project-header {
+        margin-bottom: 50px;
+        border-left: 4px solid var(--primary);
+        padding-left: 20px;
+    }
+
+    h1 {
+        font-family: var(--font-accent);
+        font-size: clamp(2.2rem, 6vw, 4rem);
+        text-transform: uppercase;
+        line-height: 1;
+    }
+
+    .card {
+        background: var(--surface);
+        border: 1px solid var(--border);
+        border-radius: 24px;
+        padding: 50px;
+        backdrop-filter: blur(15px);
+        -webkit-backdrop-filter: blur(15px);
+    }
+
+    .project-gallery img {
+        width: 100%;
+        border-radius: 12px;
+        border: 1px solid var(--border);
+        margin-bottom: 30px;
+    }
+
+    h2 {
+        font-family: var(--font-accent);
+        color: var(--primary);
+        margin: 35px 0 15px;
+        text-transform: uppercase;
+    }
+
+    p {
+        color: #ccc;
+        font-size: 1.15rem;
+        margin-bottom: 25px;
+        font-weight: 300;
+    }
+
+    .tech-pills {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 12px;
+    }
+
+    .tech-pills span {
+        font-family: var(--font-accent);
+        font-size: 0.75rem;
+        padding: 8px 18px;
+        background: rgba(0, 255, 194, 0.05);
+        border: 1px solid rgba(0, 255, 194, 0.2);
+        color: var(--primary);
+        border-radius: 4px;
+    }
+
+    .btn-back {
+        display: inline-block;
+        margin-top: 60px;
+        padding: 15px 30px;
+        border: 1px solid var(--border);
+        color: #fff;
+        font-family: var(--font-accent);
+        text-transform: uppercase;
+        text-decoration: none;
+        transition: 0.3s;
+    }
+
+    .btn-back:hover {
+        background: #fff;
+        color: #000;
+    }
+
+    @media (max-width: 768px) {
+        .card { padding: 25px; }
+    }
+  </style>
+</head>
+<body>
+
+  <canvas id="canvas-bg"></canvas>
+
+  <div class="container">
+    <header class="project-header">
+        <div style="color:var(--primary); font-family:var(--font-accent); letter-spacing:4px; font-size:0.8rem; margin-bottom:10px;">PROJETO_01 // FULL STACK</div>
+        <h1>Consulta de <span style="color:var(--primary)">Colaboradores</span></h1>
+    </header>
+
+    <div class="card">
+        <div class="project-gallery">
+            <img src="imgs/CONSULTA IMG1.jfif" alt="Preview">
+        </div>
+
+        <h2>// Sobre o Projeto</h2>
+        <p>Este projeto foi particularmente significativo para mim, tanto pela relevância prática quanto pelo aprendizado que proporcionou. A iniciativa surgiu ao observar que o diretor e diversos colegas precisavam consultar várias planilhas em Excel para obter informações simples sobre colaboradores. Entendi que isso gerava perda de tempo e oportunidade, e decidi desenvolver um sistema capaz de centralizar essas consultas e entregá-las em poucos segundos.<br><br>
+
+Durante o desenvolvimento, tive a oportunidade de aprofundar meus conhecimentos em segurança da informação com o time de Cyber Security, além de compreender melhor a estrutura e o fluxo de dados da empresa em conversas com a área de Infraestrutura. Também interagi com outros setores para complementar a base e garantir que o sistema atendesse às necessidades reais do dia a dia.<br><br>
+
+Um dos pontos mais enriquecedores foi criar APIs em JSON para permitir que o sistema acessasse e utilizasse os dados de forma integrada, mesmo sem conexão direta com o banco da empresa. No resultado final, além da evolução técnica, ficou a satisfação de entregar uma solução que efetivamente otimizou processos internos.<br></p>
+        
+        
+        <div class="tech-pills">
+            <span>JavaScript</span><span>JSON</span><span>APIs</span><span>Node JS</span><span>SQL</span>
+        </div>
+
+        <a href="index.html#projetos" class="btn-back">← [ Voltar ]</a>
+    </div>
+  </div>
+
+  <script>
+    const canvas = document.getElementById('canvas-bg');
+    const ctx = canvas.getContext('2d');
+    
+    function resize() {
+        canvas.width = window.innerWidth;
+        canvas.height = window.innerHeight;
+    }
+    window.addEventListener('resize', resize);
+    resize();
+
+    // AUMENTADO: 350 partículas com tamanhos de até 4px
+    let particles = Array.from({length: 350}, () => ({
+        x: Math.random() * canvas.width,
+        y: Math.random() * canvas.height,
+        size: Math.random() * 4 + 0.5, // Algumas chegam a 4.5px
+        speed: Math.random() * 0.5 + 0.1, // Velocidades diferentes
+        opacity: Math.random() * 0.5 + 0.2
+    }));
+
+    function animate() {
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
+        
+        particles.forEach(p => {
+            ctx.beginPath();
+            ctx.arc(p.x, p.y, p.size, 0, Math.PI * 2);
+            
+            // Efeito de Glow sutil para as maiores
+            if(p.size > 3) {
+                ctx.shadowBlur = 10;
+                ctx.shadowColor = "#00ffc2";
+            } else {
+                ctx.shadowBlur = 0;
+            }
+
+            ctx.fillStyle = `rgba(0, 255, 194, ${p.opacity})`;
+            ctx.fill();
+            
+            p.y -= p.speed;
+            if(p.y < -10) {
+                p.y = canvas.height + 10;
+                p.x = Math.random() * canvas.width;
+            }
+        });
+        requestAnimationFrame(animate);
+    }
+    animate();
+  </script>
+</body>
+</html>
